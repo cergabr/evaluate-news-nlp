@@ -21,13 +21,25 @@
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <input id="name" type="text" name="username" value="" onblur="Client.inputValidate(event)" placeholder="Insert name...">
+                    <span></span>
+                    <input id="url" type="text" name="url" value="" onblur="Client.inputValidate(event)" placeholder="insert url...">
+                    <span></span>
+                    <textarea id="text-fld" name="text" rows="10" cols="50" placeholder="insert text here"></textarea>
+                    <input id="lang-fld" type="text" name="language" maxlength="2" size="1" title="2-letter code (en,it,fr...)">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
             <section>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div>
+                    <ul>
+                        <li id="subjectivity"></li>
+                        <li id="agreement"></li>
+                        <li id="irony"></li>
+                        <li id="confidence"></li>
+                    </ul>
+                </div>
             </section>
         </main>
         <footer>
