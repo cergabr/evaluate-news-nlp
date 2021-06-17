@@ -7,15 +7,14 @@ module.exports = {
     entry: "./src/client/index.js",
     output: {
         path: path.resolve(process.cwd(),"dist"),
-        filename: "main.js",
         libraryTarget: "var",
         library: "Client",
     },
     mode: "development",
     devtool: "source-map",
     devServer: {
-        contentBase: path.resolve(process.cwd(),"dist"),
-        port: "8001"
+        static: path.resolve(process.cwd(),"dist"),
+        port: "8000"
     },
     stats: "verbose",
     module: {

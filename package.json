@@ -7,7 +7,7 @@
     "testw": "jest --watch",
     "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack serve --port 8001 --config webpack.dev.js --open"
+    "build-dev": "webpack serve --port 8000 --config webpack.dev.js --open"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -48,6 +48,6 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.39.0",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.0.0-beta.3"
   }
 }
