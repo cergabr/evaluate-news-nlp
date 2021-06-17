@@ -12,4 +12,7 @@ export function checkForName(inputText) {
         alert("Welcome, Captain!")
         return console.log("Welcome, Captain!")
     }
+    else{
+        alert("Wrong name, try again")
+    }
 }
