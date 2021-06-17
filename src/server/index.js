@@ -1,28 +1,35 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-var path = require("path")
-const express = require("express")
-const mockAPIResponse = require("./mockAPI.js")
+/*routes endpoint*/ 
+projectData = {};
 
-const app = express()
+var path = require("path");
+const express = require("express");
+const mockAPIResponse = require("./mockAPI.js");
 
-app.use(express.static("dist"))
+const app = express();
 
-console.log(__dirname)
-console.log(`Your API key is ${process.env.API_KEY}`);
+/*Middleware*/
+app.use(express.urlencoded({ extended:false }));
+app.use(express.json());
 
+/*cors*/
+const cors = require("cors");
+app.use(cors());
+
+app.use(express.static("dist"));
 
 app.get("/", function (req, res) {
     // res.sendFile("dist/index.html")
     res.sendFile(path.resolve("src/client/views/index.html"))
-})
+});
 
-// designates what port the app will listen to for incoming requests
-app.listen(8000, function () {
-    console.log("Example app listening on port 8000!")
-})
+const port = 8000;
 
-app.get("/test", function (req, res) {
-    res.send(mockAPIResponse)
-})
+// designates port app will listen for incoming requests
+app.listen(port, () => {console.log(`App listening on port ${port}`)});
+
+app.get("/apiKey", (req, res) => {
+    res.send(process.env.API_KEY);
+});
