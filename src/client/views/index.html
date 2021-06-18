@@ -11,27 +11,31 @@
     </head>
     <body>
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+            <div class="logo">
+                <img src="/img/logo.png" alt="page logo">
             </div>
         </header>
         <main>
+            <h1>Fill the form to analyze your text</h1>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="username" value="" onblur="Client.inputValidate(event)" placeholder="Insert name...">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" name="username" value="" onblur="Client.inputValidate(event)" placeholder="Insert name...(optional)">
                     <span></span>
-                    <input id="url" type="text" name="url" value="" onblur="Client.inputValidate(event)" placeholder="insert url...">
+                    <label for="url">Url</label>
+                    <input id="url" type="text" name="url" value="" onblur="Client.inputValidate(event)" placeholder="insert url...(optional)">
                     <span></span>
-                    <textarea id="text-fld" name="text" rows="10" cols="50" placeholder="insert text here"></textarea>
-                    <input id="lang-fld" type="text" name="language" maxlength="2" size="1" title="2-letter code (en,it,fr...)">
+                    <label for="text-fld">Text*</label>
+                    <textarea id="text-fld" name="text" rows="10" cols="50" onblur="Client.inputValidate(event)" placeholder="insert text here (required)"></textarea>
+                    <span></span>
+                    <label for="lang-fld">Language*</label>
+                    <input id="lang-fld" type="text" name="language" maxlength="2" size="2" onblur="Client.inputValidate(event)" title="2-letter code (en,it,fr...)">
+                    <span></span>
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
-            <section>
-                <strong>Form Results:</strong>
+            <section id="results" class="filled">
+                <h2>Form Results:</h2>
                 <div>
                     <ul>
                         <li id="subjectivity"></li>
@@ -43,7 +47,7 @@
             </section>
         </main>
         <footer>
-            <p>This is a footer</p>
+            <p>Sentiment Analysis is provided by <a href="https://www.meaningcloud.com/">Meaning cloud</a></p>
         </footer>
         <script>
             // Check that service workers are supported
