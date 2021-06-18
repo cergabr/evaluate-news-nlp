@@ -1,6 +1,5 @@
 export function inputValidate(e){
     const value=e.target.value.trim();
-    console.log(value)
     const id=e.target.id;
     const elem=document.getElementById(id);
 
@@ -25,12 +24,14 @@ export function inputValidate(e){
             elem.classList.add("valid");
             elem.classList.remove("error");
             document.querySelector("#"+id+" + span").innerHTML = "";
+            return true;
         }
         //if input is invalid add error
         else{
             elem.classList.add("error");
             elem.classList.remove("valid");
             document.querySelector("#"+id+" + span").innerHTML = "Wrong "+id+"!";
+            return false
         }
     }
 }
