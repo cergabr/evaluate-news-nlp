@@ -1,5 +1,5 @@
 # Evaluate a News Article with Natural Language Processing
-# Project for Udacity Nanodegree Program - Front End Web Developer
+Project for Udacity Nanodegree Program - Front End Web Developer
 
 ## Table of Contents
 
