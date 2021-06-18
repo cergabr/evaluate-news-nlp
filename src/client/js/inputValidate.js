@@ -8,12 +8,22 @@ export function inputValidate(e){
         //checking input by id with regex
         switch(id){
             case "name":
-                if(value.match(/Picard|Janeway|Kirk|Archer|Georgiou/)){
+                if(value.match(/^Picard$|^Janeway$|^Kirk$|^Archer$|^Georgiou$/)){
                     valid=true;
                 }
                 break;
             case "url":
                 if(value.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)){
+                    valid=true;
+                }
+                break;
+            case "text-fld":
+                if(value !== ""){
+                    valid=true;
+                }
+                break;
+            case "lang-fld":
+                if(value.match(/^[a-z]{2}$/i)){
                     valid=true;
                 }
                 break;
@@ -31,7 +41,15 @@ export function inputValidate(e){
             elem.classList.add("error");
             elem.classList.remove("valid");
             document.querySelector("#"+id+" + span").innerHTML = "Wrong "+id+"!";
-            return false
+            return false;
+        }
+    }
+    else{
+        if (id.endsWith("-fld")){
+            elem.classList.add("error");
+            elem.classList.remove("valid");
+            document.querySelector("#"+id+" + span").innerHTML = "Empty field! Fill out to procede";
+            return false;
         }
     }
 }
