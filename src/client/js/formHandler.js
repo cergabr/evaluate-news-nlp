@@ -31,10 +31,10 @@ export function handleSubmit(event) {
         fetch("https://api.meaningcloud.com/sentiment-2.1", requestOption)
         .then(res=>{
             const data= res.json();
-            console.log(data);
             return data;
         })
         .then(data => {
+            console.log(data)
             const apiData = {
                 sub: data.subjectivity.toLowerCase(),
                 agreement: data.agreement.toLowerCase(),

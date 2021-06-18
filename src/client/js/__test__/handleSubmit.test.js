@@ -1,3 +1,4 @@
+import { toNamespacedPath } from "path/posix";
 import { handleSubmit } from "../formHandler";
 
 beforeAll(()=>{
@@ -8,19 +9,37 @@ beforeEach(()=>{
 })
 
 describe("Testing submit", ()=>{
-    test("Testing handleSubmit()", ()=>{
+    test("Testing handleSubmit()", () =>{
         const e = new CustomEvent("test-event", {preventDefault: jest.fn()});
-        fetch.mockResponseOnce(JSON.stringify({message: "this is a message"}));
+        const data= {
+            subjectivity: "subjective",
+            agreement: "agreement",
+            irony: "nonironic",
+            confidence: 90
+        };
+        fetch
+            .once("apikey")
+            .once(JSON.stringify(data));
     
         document.body.innerHTML=
             "<form\>"+
                 "<input id=\"name\" value=\"Picard\"\>"+
+                "<input id=\"url\" value=\"https://www.google.com/\">"+
+                "<input id=\"text-fld\" value=\"sample text\">"+
+                "<input id=\"lang-fld\" value=\"en\">"+
             "</form>"+
-            "<div id=\"results\"></div>";
+            "<div id=\"results\"></div>"+
+            "<ul>"+
+                "<li id=\"subjectivity\"></li>"+
+                "<li id=\"agreement\"></li>"+
+                "<li id=\"irony\"></li>"+
+                "<li id=\"confidence\"></li>"+
+            "</ul>";
 
         expect(handleSubmit).toBeDefined();
         handleSubmit(e);
         expect(Client.checkForName).toHaveBeenCalledWith("Picard");
-        expect(fetch).toHaveBeenCalledWith("http://localhost:8000/test");
+        expect(Client.urlValidate).toHaveBeenCalledWith("https://www.google.com/");
+        expect(fetch).toHaveBeenCalledWith("/apiKey")       
     });
 });

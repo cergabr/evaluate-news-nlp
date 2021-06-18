@@ -13,6 +13,7 @@
     "testEnvironment": "jsdom",
     "verbose": true,
     "automock": false,
+    "resetMocks":false,
     "setupFiles": [
       "./setupJest.js"
     ],
