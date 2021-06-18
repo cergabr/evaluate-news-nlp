@@ -9,10 +9,9 @@ export function checkForName(inputText) {
     ]
 
     if(names.includes(inputText)) {
-        alert("Welcome, Captain!")
-        return console.log("Welcome, Captain!")
+        return alert("Welcome, Captain!")
     }
     else{
-        alert("Wrong name, try again")
+        return alert("Wrong name, try again")
     }
 }

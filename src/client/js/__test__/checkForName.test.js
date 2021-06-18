@@ -1,11 +1,11 @@
 import { checkForName } from "../nameChecker";
 
-describe("Testing input name", ()=>{
+describe("Testing input name validation", ()=>{
     test("Testing checkForName()", ()=>{
-        const input = "Kirk";
-        const badInput = "John";
-        global.alert = jest.fn();
-        expect(checkForName(input)).toBe(console.log("Welcome, Captain!"));
-        expect(checkForName(badInput)).toBeUndefined();
+        jest.spyOn(window, "alert").mockImplementation(()=>{});
+        checkForName("Kirk");
+        expect(window.alert).toHaveBeenCalledWith("Welcome, Captain!");
+        checkForName("John");
+        expect(window.alert).toHaveBeenCalledWith("Wrong name, try again");
     });
 });
