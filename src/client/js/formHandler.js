@@ -9,7 +9,7 @@ export function handleSubmit(event) {
     Client.urlValidate(inputURL);
     
     const formText = document.getElementById("text-fld").value;
-    const formLang = document.getElementById("lang-fld").value;
+    const formLang = document.getElementById("lang-fld").value.toLowerCase();
 
     console.log("::: Form Submitted :::");
 
