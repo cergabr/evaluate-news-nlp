@@ -1,5 +1,9 @@
 header {
     display: flex;
-    justify-content: space-between;
     padding: 10px 40px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 }
+
+.logo img{
+        width:200px;
+    }

@@ -2,11 +2,64 @@ form {
     border: 1px solid #545454;
     border-radius: 3px;
     padding: 40px;
+    margin-top:40px;
 }
 
 input {
+    font-family: inherit;
     padding: 5px 20px;
     width: 100%;
     line-height: 16px;
     margin: 10px 0;
+    &#lang-fld{
+        width:auto;
+    }
+    &[type="submit"]{
+        width:auto;
+        margin:auto;
+        display:block;
+        padding: 8px 20px 8px 20px;
+        font-weight: bold;
+        font-size: 16px;
+        color:black;
+        background-color: transparent;
+        border:1px solid #222222;
+        border-radius: 5px;
+        margin-top:40px;
+        &:hover{
+            background-color: #222222;
+            color:white;
+            cursor:pointer;
+        }
+    }
+    &.error{
+        outline:1px solid red;
+    }
+    & + span{
+        color:red;
+    }
+    &.valid{
+        outline:1px solid green;
+    }
+}
+
+textarea{
+    font-family: inherit;
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+    &.error{
+        outline:1px solid red;
+    }
+    & + span{
+        color:red;
+    }
+    &.valid{
+        outline:1px solid green;
+    }
+}
+
+span{
+    display:block;
 }

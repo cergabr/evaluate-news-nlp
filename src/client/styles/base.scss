@@ -2,13 +2,44 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 main {
     flex: 2;
 }
 
+h1{
+    font-size:40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top:100px;
+}
+
 section {
     max-width: 800px;
     margin: 50px auto;
+    &#results{
+        display:none;
+        &.filled{
+            display:block;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+            border: 1px solid #545454;
+            border-radius: 3px;
+            padding: 40px;
+            margin-top:100px;
+            height:300px;
+        }
+        & h2{
+            font-size: 20px;
+            text-align: center;
+        }
+        & ul{
+            padding:25px;
+            text-align: center;
+            & li{
+                margin:20px auto 20px auto;
+            }
+        }
+    }
 }
