@@ -18,7 +18,8 @@
       "./setupJest.js"
     ],
     "moduleNameMapper": {
-      "^.+\\.(css|scss)$": "<rootDir>/src/client/__mocks__/styleMock.js"
+      "^.+\\.(css|scss)$": "<rootDir>/src/client/__mocks__/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":"<rootDir>/src/client/__mocks__/fileMock.js"
     }
   },
   "keywords": [],
@@ -39,6 +40,7 @@
     "css-loader": "^5.2.6",
     "css-minimizer-webpack-plugin": "^3.0.1",
     "dotenv": "^10.0.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "jest": "^27.0.4",
     "jest-fetch-mock": "^3.0.3",
