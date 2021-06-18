@@ -6,6 +6,8 @@ export function handleSubmit(event) {
 
     const txt={target:{id:"text-fld",value:formText}};
     const lang={target:{id:"lang-fld",value:formLang}}
+    Client.inputValidate(txt);
+    Client.inputValidate(lang);
 
     if(Client.inputValidate(txt) && Client.inputValidate(lang)){    
 
@@ -25,7 +27,7 @@ export function handleSubmit(event) {
         fetch("/apiKey")
         .then(res => res.text())
         .then(key => {
-            //formData.set("key", key);
+            formData.set("key", key);
             fetch("https://api.meaningcloud.com/sentiment-2.1", requestOption)
             .then(res=>{
                 const data= res.json();
