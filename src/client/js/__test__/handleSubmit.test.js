@@ -16,6 +16,9 @@ describe("Testing submit", ()=>{
             irony: "nonironic",
             confidence: 90
         };
+
+        Client.inputValidate=jest.fn(()=>{return true});
+
         fetch
             .once("apikey")
             .once(JSON.stringify(data));
@@ -37,8 +40,7 @@ describe("Testing submit", ()=>{
 
         expect(handleSubmit).toBeDefined();
         handleSubmit(e);
-        expect(Client.checkForName).toHaveBeenCalledWith("Picard");
-        expect(Client.urlValidate).toHaveBeenCalledWith("https://www.google.com/");
-        expect(fetch).toHaveBeenCalledWith("/apiKey")       
+        expect(Client.inputValidate).toHaveBeenCalled();
+        expect(fetch).toHaveBeenCalledWith("/apiKey");      
     });
 });
